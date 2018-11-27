@@ -34,7 +34,7 @@ HQ = GROUP:FindByName( "HQ" )
 
 CC = COMMANDCENTER:New( HQ, "HQ" )
 
--- Let the RecceSetGroup vehicles in the collection detect targets and group them in AREAS of 1000 meters.
+-- Let the RecceSetGroup vehicles in the collection detect targets and group them by type.
 RecceDetection = DETECTION_TYPES:New( RecceSetGroup )
 
 -- Create a 
