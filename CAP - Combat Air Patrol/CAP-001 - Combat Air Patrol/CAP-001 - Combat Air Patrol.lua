@@ -20,4 +20,4 @@ AICapZone = AI_CAP_ZONE:New( PatrolZone, 500, 1000, 500, 600 )
 
 AICapZone:SetControllable( CapPlane )
 
-AICapZone:__Start( 1 ) -- They should statup, and start patrolling in the PatrolZone.
+AICapZone:__Start( 1 ) -- They should start up, and start patrolling in the PatrolZone.
