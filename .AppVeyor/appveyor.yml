@@ -1,4 +1,4 @@
-version: 0.0.1.{build}
+version: 2.4.a.{build}
 shallow_clone: false
 skip_branch_with_pr: false
 skip_commits:
@@ -27,9 +27,6 @@ install:
 cache:
   - C:\ProgramData\chocolatey\lib
   - C:\ProgramData\chocolatey\bin
-  
-
-
 
 build_script:
   - ps: |
@@ -71,7 +68,6 @@ build_script:
       git commit -m "MOOSE demonstration missions [skip ci]" 2>&1 
       git push origin "$env:appveyor_repo_branch" 2>&1
       dir
-
 
 artifacts:
 
