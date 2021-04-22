@@ -72,6 +72,7 @@ build_script:
       echo "Pull Title:" $env:APPVEYOR_PULL_REQUEST_TITLE
       echo "Commit:" $env:APPVEYOR_REPO_COMMIT
       echo "Commit Message:" $env:APPVEYOR_REPO_COMMIT_MESSAGE
+      dir
 artifacts:
 
 on_finish:
