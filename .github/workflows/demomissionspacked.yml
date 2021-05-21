@@ -118,6 +118,12 @@ jobs:
             }
            Copy-Item -Path "$file" -Destination "$to_file" -Force  #ps1 and lua mission file
          }
+         # remove _unpacked dirs, if any
+         foreach ( $file in Get-ChildItem ".\MOOSE_MISSIONS\" -Include "_unpacked" -Recurse )
+         {
+            Write-Host $file
+            rmdir $file -Recurse
+          }
          
     - name: Push Changes Packed
       run: |
