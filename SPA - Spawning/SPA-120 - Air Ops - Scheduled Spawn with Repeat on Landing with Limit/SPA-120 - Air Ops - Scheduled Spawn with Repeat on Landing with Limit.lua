@@ -2,7 +2,6 @@
 -- Name: SPA-120 - Air Ops - Scheduled Spawns with Repeat on Landing with Limit
 -- Author: FlightControl
 -- Date Created: 05 Feb 2017
--- Checked in 15 dez 2020 by ZERO
 --
 -- # Situation:
 --
