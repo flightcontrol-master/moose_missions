@@ -2,6 +2,7 @@
 -- Name: SPA-023 - Ground Ops - SpawnStart and SpawnStop
 -- Author: FlightControl
 -- Date Created: 10 Jan 2017
+-- Checked in 15 dez 2020 by ZERO
 --
 -- # Situation:
 --

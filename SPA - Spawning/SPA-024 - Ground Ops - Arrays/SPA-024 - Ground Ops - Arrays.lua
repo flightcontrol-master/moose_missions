@@ -2,6 +2,7 @@
 -- Name: SPA-024 - Ground Ops - Arrays
 -- Author: FlightControl
 -- Date Created: 19 Jul 2017
+-- Checked in 15 dez 2020 by ZERO
 --
 -- # Situation:
 --

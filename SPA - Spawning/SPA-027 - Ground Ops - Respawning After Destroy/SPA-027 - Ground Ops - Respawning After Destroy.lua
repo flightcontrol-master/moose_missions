@@ -1,6 +1,7 @@
 -- Name: SPA-027 - Ground Ops - Respawning After Destroy
 -- Author: FlightControl
 -- Date Created: 10 Dec 2017
+-- Checked in 15 dez 2020 by ZERO
 --
 -- At Gudauta spawns ground vehicle, in a scheduled fashion.
 -- There can only be a maximum of 2 grond vehicles alive.
@@ -9,7 +10,7 @@
 -- 
 -- Red is attacking the spawned blue vehicles.
 -- Once blue is destroyed, a new blue needs to spawn.
--- Until all 10 blue vehicles are spawned.
+-- Until all 10 blue vehicles (units) are spawned.
 -- The position of blue is randomized in the zone.
 -- Blue has ROE hold weapons.
 -- 
