@@ -2,6 +2,7 @@
 -- Name: SPA-140 - Spawn Client Slots
 -- Author: FlightControl
 -- Date Created: 30 Aug 2017
+-- Checked in 15 dez 2020 by ZERO (doesn't work)
 --
 -- # Situation:
 --

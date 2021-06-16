@@ -2,6 +2,7 @@
 -- Name: SPA-122 - Air Ops - OnLand test for Scheduled Spawns
 -- Author: FlightControl
 -- Date Created: 21 Mar 2017
+-- Checked in 15 dez 2020 by ZERO
 --
 -- # Situation:
 --
