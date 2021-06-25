@@ -37,10 +37,10 @@ function RedCsar:OnAfterRescued(From, Event, To, HeliUnit, HeliName, NumberSaved
 end
 
 function Spawn_CSAR(RedCSAR)
-  RedCSAR:SpawnCSARAtZone( "CSAR_Start_1", coalition.side.RED,"Pilot Maulwurf", true )
-  RedCSAR:SpawnCSARAtZone( "CSAR_Start_2", coalition.side.RED,"Pilot Schnake", true )
-  RedCSAR:SpawnCSARAtZone( "CSAR_Start_3", coalition.side.RED,"Pilot Chickendog", true )
-  RedCSAR:SpawnCSARAtZone( "CSAR_Start_4", coalition.side.RED,"Pilot Wagner", true )
+  RedCSAR:_SpawnCsarAtZone( "CSAR_Start_1", coalition.side.RED,"Pilot Maulwurf", true )
+  RedCSAR:_SpawnCsarAtZone( "CSAR_Start_2", coalition.side.RED,"Pilot Schnake", true )
+  RedCSAR:_SpawnCsarAtZone( "CSAR_Start_3", coalition.side.RED,"Pilot Chickendog", true )
+  RedCSAR:_SpawnCsarAtZone( "CSAR_Start_4", coalition.side.RED,"Pilot Wagner", true )
 end
 
 local maulwuerfe = TIMER:New(Spawn_CSAR,RedCsar)
