@@ -26,7 +26,7 @@ myctld:__Start(5)
 myctld:AddCTLDZone("PickupZone",CTLD.CargoZoneType.LOAD,SMOKECOLOR.Blue,true,true)
 
 -- define a drop zone
-myctld:AddCTLDZone("DropZone",CTLD.CargoZoneType.LOAD,SMOKECOLOR.Red,true,true)
+myctld:AddCTLDZone("DropZone",CTLD.CargoZoneType.DROP,SMOKECOLOR.Red,true,true)
 
 -- define statics cargo
 myctld:AddStaticsCargo("Ammunition",50,25) -- ammuntion weight 50kg ;) stock 25 pc
