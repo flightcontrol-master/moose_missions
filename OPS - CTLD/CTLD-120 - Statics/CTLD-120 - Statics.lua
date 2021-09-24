@@ -10,7 +10,7 @@
 -- Load and fly over 5 ammunition crates to the trucks waiting at the farm at waypoint 1. 
 -- Once dropped, the trucks will drive to the artillery, so Kobuleti can be shelled!
 -------------------------------------------------------------------------
--- Date: 24 September 2021
+-- Date: 24 September 2021 
 -------------------------------------------------------------------------
 
 -- Set up CTLD
