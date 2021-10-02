@@ -11,8 +11,8 @@ ToCoord = FromCoord:Translate( 1000, 180 )
 RoutePoints = {}
 
 -- Create a "grount route point", which is a "point" structure that can be given as a parameter to a Task
-RoutePoints[#RoutePoints+1] = FromCoord:WaypointGround()
-RoutePoints[#RoutePoints+1] = ToCoord:WaypointGround(30,"Cone")
+RoutePoints[#RoutePoints+1] = FromCoord:RoutePointGround( 0 )
+RoutePoints[#RoutePoints+1] = ToCoord:RoutePointGround( 60, "Cone" )
 
 -- Create a combo task, that creates a route task to the RoutePoint
 RouteTask = GroundGroup:TaskRoute( RoutePoints )
