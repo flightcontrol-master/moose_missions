@@ -22,6 +22,7 @@ local syriaborder = ZONE_POLYGON:New("Syria",GROUP:FindByName("Syria Border"))
 --- MANTIS
 local RedMantis = MANTIS:New("SyMantis","SAM-SA","EWR",nil,"red")
 RedMantis:AddZones({syriaborder},{israelborder}) --accept and reject zones
+RedMantis.autoshorad = false
 RedMantis:AddShorad(redshorad,600)
 RedMantis:__Start(5)
 
