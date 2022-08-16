@@ -12,6 +12,8 @@ local zoneBravo=ZONE:New("Zone Bravo")
 local tu22=FLIGHTGROUP:New("Tu-22 Air Group")
 tu22:AddWaypoint(zoneAlpha:GetCoordinate():SetAltitude(7000))
 tu22:AddWaypoint(zoneBravo:GetCoordinate():SetAltitude(10000))
+tu22:AddCheckZone(zoneAlpha)
+tu22:AddCheckZone(zoneBravo)
 tu22:Activate()
 
 -- If the intruder makes it to zone Bravo, we send it RTB.
