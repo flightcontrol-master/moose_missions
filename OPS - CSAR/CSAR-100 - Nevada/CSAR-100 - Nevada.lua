@@ -1,5 +1,5 @@
 -------------------------------------------------------------------------
--- CSAR 100 - Nevada - Test Mission
+-- CSAR 100 - Nevasa - Test Mission
 -------------------------------------------------------------------------
 -- Documentation
 -- 
@@ -19,9 +19,6 @@ _SETTINGS:SetPlayerMenuOff()
 _SETTINGS:SetA2G_BR()
 _SETTINGS:SetA2A_BULLS()
 _SETTINGS:SetImperial()
-
-BASE:TraceOn()
-BASE:TraceClass("CSAR")
 
 my_scoring = SCORING:New("CSAR")
 

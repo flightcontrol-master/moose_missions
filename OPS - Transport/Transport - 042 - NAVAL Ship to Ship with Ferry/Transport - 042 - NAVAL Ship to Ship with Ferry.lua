@@ -1,16 +1,11 @@
 ---
 -- NAVAL: Transport Ship-to-Ship but ferry ships are transported as well.
 -- 
--- Three speed boats are used to transfer troops from the beach to a bigger transport ship.
--- Only one is actually needed to transport all troops.
+-- A speed boat is used to transfer troops from the beach to the bigger transport ship.
+-- The speed boat needs to go two times to deliver all troops.
 -- 
--- Once the speed boat has finished its transport assignment, all three speed boats are
--- loaded into the Handy Wind as well.
--- 
--- All cargo is then transported to the deploy zone.
--- 
--- At the deploy zone, the speed boats will then transfer the troops from the Handy Wind
--- to the shore.
+-- Once the speed boat has finished its transport assignment, the Handy Wind will transport
+-- the troops to another deploy zone.
 ---
 
 -- Zones.
@@ -60,6 +55,7 @@ function transfer1:OnAfterDelivered()
   for _,_carrier in pairs(carriers) do
     local carrier=_carrier --Ops.NavyGroup#NAVYGROUP
     if not carrier:IsInZone(zonePickup) then
+      env.info("FF carrier not in pickup zone "..carrier:GetName())
       carrier:AddWaypoint(zonePickup:GetRandomCoordinate())
     end
   end
@@ -71,11 +67,7 @@ end
 
 -- Transport assignment.
 local transport=OPSTRANSPORT:New(SpeedboatSet, zonePickup, zoneDeploy)
-
--- We add the Infantry troops as well, but set them to be unloaded in late activated state so they dont float on the water.
 transport:AddCargoGroups(InfantrySet, nil, false)
-
--- Set that all cargo is required before transport of the FIRST batch starts. Handy Wind is large enough to carry everything in one go.
 transport:SetRequiredCargos(AllCargo)
 
 ---

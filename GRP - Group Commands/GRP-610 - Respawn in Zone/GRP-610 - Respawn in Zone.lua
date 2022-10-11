@@ -1,5 +1,5 @@
---- This makes a vehicle respawn itself in zone ZONEVEHICLE1.
--- Name: GRP-610 - Respawn in Zone
+--- This makes a vehicle respawn itself when the mission starts.
+-- Name: GRP-600 - Respawn
 -- Author: FlightControl
 -- Date Created: 01 Mar 2018
 

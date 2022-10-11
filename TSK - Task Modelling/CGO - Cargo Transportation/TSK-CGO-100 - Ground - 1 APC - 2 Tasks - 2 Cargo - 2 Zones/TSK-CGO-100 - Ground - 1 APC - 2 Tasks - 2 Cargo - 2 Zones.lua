@@ -5,15 +5,6 @@
 --
 -- This mission demonstrates the transport of a cargo group using an APC.
 -- 
--- There is:
---  - 1 APC.
---  - 2 Transport Tasks - Transport Workers and Transport Engineers.
---  - 2 Cargo - Workers and Engineers.
---  - 2 Deployment Zones - Alpha and Beta.
---  
---  Task Engineers: Transport the Engineers to Deployment Zone Alpha or Zone Beta.
---  Task Workers: Transport the Workers to Deployment Zone Beta.
--- 
 
 do
   local HQ = GROUP:FindByName( "HQ", "Bravo HQ" )

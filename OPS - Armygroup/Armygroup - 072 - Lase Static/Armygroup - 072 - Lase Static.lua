@@ -6,8 +6,6 @@
 -- The target is a watch tower in the vicinity. We use 1689 as laser code.
 -- 
 -- The target is destroyed after 10 min. Then the laser is switched off automatically.
--- 
--- PS: You can choose the JTAC/Operator slot and jump into a Bradley (RALT+J) or an A-10C client and turn on the night vision goggles to observe the LASER (or better the IR-pointer).
 ---
 
 -- Create and ARMYGROUP.

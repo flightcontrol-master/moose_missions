@@ -1,9 +1,5 @@
 ---
--- FLIGHTGROUP: Divert
--- 
--- Just like in example mission "Flightgroup - 030 - Destination" we set the destination to Kobuleti.
--- However, when the group has passed the final waypoint, we let the group divert to Senaki.
--- Note that the group needs to have at least one waypoint to have the OnAfterPassingWaypoint function to be called. 
+-- Divert
 ---
 
 -- Create a FLIGHTGROUP object.

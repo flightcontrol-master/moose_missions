@@ -4,9 +4,14 @@
 -- A UH-1H Huey is stationed at Batumi.
 -- It is assigned to pick up three cargo crates in the vicinity and bring it to Batumi.
 -- The transports are carried out in a well-defined order.
--- 
--- Note that cargo must be light enough for the helo to carry it. So not all missions might be successfull!
 ---
+
+BASE:TraceOn()
+BASE:TraceLevel(2)
+BASE:TraceClass("OPSGROUP")
+BASE:TraceClass("AUFTRAG")
+AUFTRAG.verbose=3
+OPSGROUP.verbose=3
 
 -- Static cargo objects.
 -- NOTE that

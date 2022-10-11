@@ -22,7 +22,6 @@ local myredmantis = MANTIS:New("Gudauta AAA","Red AAA","Red EWR",nil,"red",true,
 myredmantis:SetSAMRadius(25000)
 myredmantis:SetSAMRange(85)
 myredmantis:SetDetectInterval(20)
-myredmantis.autoshorad = false
 myredmantis:Start()
 
 -- Long-range SAM site, also linked to SHORAD
@@ -30,7 +29,6 @@ local myredsa10 = MANTIS:New("Gudauta SA10","Red SA11","Red EWR","Red HQ","red",
 myredsa10:SetSAMRadius(UTILS.NMToMeters(40))
 myredsa10:SetSAMRange(90)
 myredsa10:SetDetectInterval(20)
-myredsa10.autoshorad = false
 myredsa10:AddShorad(myredshorad,720)
 myredsa10:SetAdvancedMode(true,90)
 myredsa10:SetAutoRelocate(true,false)

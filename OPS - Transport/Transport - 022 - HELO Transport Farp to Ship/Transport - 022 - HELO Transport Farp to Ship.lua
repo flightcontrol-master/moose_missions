@@ -24,9 +24,9 @@ local zoneDeploy=ZONE_AIRBASE:New("USS Shiloh")
 
 -- Cargo set.
 local infset=SET_OPSGROUP:New():FilterPrefixes("Infantry Platoon Charlie"):FilterOnce()
-infset:Activate()
+  infset:Activate()
  
--- Create a transport assignment from FARP to Ship. The cargo is directly transferred into the carrier! 
+  -- Create a transport assignment from FARP to Ship. The cargo is directly transferred into the carrier! 
 local transport=OPSTRANSPORT:New(infset, zonePickup, zoneDeploy)
 
 -- Assign transport to Huey.

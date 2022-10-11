@@ -4,7 +4,7 @@
 -- A KC-135, callsign Arco 5-1, is tasked to refuel our units at two different locations.
 -- 
 -- First assignment is to orbit in zone Alpha from 8:05 to 8:45. TACAN channel is 80Y ("ARC"), radio 225 MHz.
--- At 9:00 it will move to zone Delta for half an our. TACAN channel is 81Y ("XYZ"), radio 230 MHz.
+-- At 9:00 it will move to zone Bravo for half an our. TACAN channel is 81Y ("XYZ"), radio 230 MHz.
 ---
 
 -- Orbit zones.

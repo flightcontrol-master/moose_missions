@@ -1,11 +1,12 @@
 ---
 -- AUFTRAG: Strike
 -- 
--- Task is to destroy a strategically important bridge at the mouth of the Enguri river.
+-- Task is to destroy a bridge at the mouth of the Enguri river.
 -- 
 -- We assign two flights, one Viggen and one A-10C, for this job.
 -- 
 -- The Viggen pilot is a nugget and tends to drop bombs long. So it is always good to have a more experienced pilot as backup.
+-- (On a more serious note, the Viggen AI is not dropping bombs accurately)
 -- 
 -- NOTE:
 -- * In order to get the scenery object, you can right click on the map in the mission editor and use the "assign as..." function to create a zone.

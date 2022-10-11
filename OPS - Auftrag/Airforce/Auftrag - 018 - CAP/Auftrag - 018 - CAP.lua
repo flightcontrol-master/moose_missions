@@ -2,9 +2,6 @@
 -- Mission: Combat Air Patrol (CAP)
 -- 
 -- An F-16 group will perform a DCS CAP in zone Delta and attack all targets it detects automatically.
--- 
--- At 08:15 two enemy groups will fly into the CAP zone and should be engaged.
--- The enemies will not attack as they are on a simple orbit mission where the ROE prohibit any engagement.
 ---
 
 -- CAP zone.

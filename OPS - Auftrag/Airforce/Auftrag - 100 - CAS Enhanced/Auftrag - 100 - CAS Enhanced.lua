@@ -2,7 +2,7 @@
 -- Mission: Close Air Support (CAS) Enhanced
 -- 
 -- A group of three A-10s will provide close air support in (polygon) zone called "Zone CAS" and attack ground targets it detects automatically.
--- Targets in zone "Zone No Engage" are spared as intel reports a great risk of civilan casualties in this area.
+-- Targets in zone "Zone No Engage" are spared as intel reports a great risk of civilan casualties.
 --
 -- Why "enhanced"?
 -- 

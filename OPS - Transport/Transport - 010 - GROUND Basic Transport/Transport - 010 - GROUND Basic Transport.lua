@@ -158,7 +158,7 @@ function infantry:OnAfterBoard(From, Event, To, CarrierGroup, Carrier)
   env.info(text)        
 end
 
---- Function called when the group embarked a carrier.
+--- Function called when the group disembarked a carrier.
 function infantry:OnAfterEmbarked(From, Event, To, CarrierGroup, Carrier)
   local carriergroup=CarrierGroup --Ops.OpsGroup#OPSGROUP
   local carrier=Carrier --Ops.OpsGroup#OPSGROUP.Element)

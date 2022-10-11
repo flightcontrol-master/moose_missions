@@ -11,6 +11,8 @@
 -- Firing and rearming will go on "forever".
 ---
 
+PROFILER.Start()
+
 -- Create an ARMYGROUP object.
 local armygroup=ARMYGROUP:New("MLRS M270")
 armygroup:Activate()

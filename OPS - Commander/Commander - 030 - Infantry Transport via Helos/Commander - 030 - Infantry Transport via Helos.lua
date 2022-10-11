@@ -2,9 +2,7 @@
 -- COMMANDER: Infantry Transport via Helos
 -- 
 -- Two brigades at Batumi and Kobuleti provide ground assets for a PATROL ZONE mission.
--- 
 -- The Airwing at Senaki provides helicopter assets to transport assets to the patrol zone.
--- The helicopters will fly to the brigades and pickup the infantry.
 ---  
 
 ---

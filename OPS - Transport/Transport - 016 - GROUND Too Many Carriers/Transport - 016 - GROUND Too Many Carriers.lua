@@ -7,7 +7,7 @@
 -- The second carrier will wait at the pickup zone in case more cargo is added to the transport.
 -- 
 -- Once the first carrier has delivered all cargo, both carriers will return to their initial position.
----
+-- -
 
 -- Pickup and deploy zones.
 local zonePickup=ZONE:New("Zone Engage X")

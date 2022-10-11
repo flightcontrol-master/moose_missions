@@ -1,6 +1,6 @@
----
--- GROUND Carrier Dead
--- 
+  ---
+  -- GROUND Carrier Dead
+  -- 
 -- A group of two TPz Fuchs is ordered to transport and infantry group from Zone Kobulety X to a nearby Zone Alpha.
 -- 
 -- Before the carrier can pickup the cargo, it is destroyed.
@@ -32,9 +32,9 @@ transport:SetVerbosity(3)
     
 -- Assign transports to carriers.
 function carrier:OnAfterSpawned(From,Event,To)
-  env.info("Carrier spawned!")
+  env.info("FF carrier spawned")
   if transport and not transport:IsDelivered() then
-    env.info("Assigning transport to carrier...")
+    env.info("FF adding transport")
     carrier:AddOpsTransport(transport)
   end
 end  

@@ -42,7 +42,6 @@ local function Explosion(object, power)
   end
 end  
 
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 -- Start warehouses.
 warehouse.Batumi:Start()
@@ -78,7 +77,7 @@ function warehouse.Berlin:OnAfterSelfRequest(From,Event,To,groupset,request)
       
       -- Route group to Battle zone.
       local ToCoord=BattleZone:GetRandomCoordinate()
-      group:RouteGroundOnRoad(ToCoord, group:GetSpeedMax()*0.8)
+      group:RouteGroundOnRoad(ToCoord, group:GetSpeedMax()*80)
       
       -- After 3-5 minutes we create an explosion to destroy the group.
       SCHEDULER:New(nil, Explosion, {group, 50}, math.random(180, 300))
@@ -97,7 +96,7 @@ function warehouse.Berlin:OnAfterAssetDead(From, Event, To, asset, request)
   local assignment=warehouse.Berlin:GetAssignment(request)
 
   -- Request resupply for dead asset from Batumi.
-  warehouse.Batumi:AddRequest(warehouse.Berlin, WAREHOUSE.Descriptor.ATTRIBUTE, asset.attribute, 1, nil, nil, nil, "Resupply")
+  warehouse.Batumi:AddRequest(warehouse.Berlin, WAREHOUSE.Descriptor.ATTRIBUTE, asset.attribute, nil, nil, nil, nil, "Resupply")
   
   -- Send asset to Battle zone either now or when they arrive.
   warehouse.Berlin:AddRequest(warehouse.Berlin, WAREHOUSE.Descriptor.ATTRIBUTE, asset.attribute, 1, nil, nil, nil, assignment)

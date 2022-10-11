@@ -86,6 +86,7 @@ function tanker:OnAfterStart(From,Event,To)
   -- Set recovery tanker.
   AirbossStennis:SetRecoveryTanker(tanker)  
 
+
   -- Use tanker as radio relay unit for LSO transmissions.
   AirbossStennis:SetRadioRelayLSO(self:GetUnitName())
   
@@ -94,7 +95,7 @@ end
 --- Function called when AWACS is started.
 function awacs:OnAfterStart(From,Event,To)
   -- Set AWACS.
-  AirbossStennis:SetAWACS(awacs)
+  AirbossStennis:SetRecoveryTanker(tanker)  
 end
 
 

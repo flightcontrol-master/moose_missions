@@ -1,17 +1,13 @@
 ---
 -- ARMYGROUP: Lase Detected Units
 -- 
--- A JTAC Humvee group is located on the roof of a building new the old airfield at Kobuleti and practicing to lase targets.
+-- A JTAC infantry group is located on the roof of a building new the old airfield at Kobuleti and practicing to lase targets.
 -- 
--- Only targets that are detected by the group are lased. If the detected target is lost, the laser is switched off.
--- If a new target with a higher threat level is detected, the JTAC will automatically switch to that target.
--- 
--- The first target the group detects should be a rather harmless group of BTRs.
--- Later in the mission, some T-90 tanks enter the battlefield. These are a higher threat and the JTAC will switch the laser to the tanks.
 ---
 
 -- Create and ARMYGROUP.
-local jtac=ARMYGROUP:New("JTAC Hmmwv")
+--local jtac=ARMYGROUP:New("JTAC Hmmwv")
+local jtac=ARMYGROUP:New("JTAC Batcher")
 
 -- Switch detection on.
 jtac:SetDetection(true)

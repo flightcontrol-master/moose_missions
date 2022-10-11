@@ -3,13 +3,12 @@
 -- 
 -- Huey is ordered to transport infantry.
 -- 
--- Before the cargo can be loaded, the enemy destroys the Huey.
+-- Before the cargo can be loaded, the enemy destroyes the Huey.
 -- The group is then respawned and the transport is newly assigned.
 -- 
 -- The respawned huey is really unlucky and gets destroyed again
--- 60 seconds after taking off. This also destroys the loaded cargo groups.
-
--- However, it seems to have seven lives and gets respawned again.
+-- 60 seconds after taking off. This also destroyes the loaded cargo groups.
+-- However, it seems to have seven lifes and gets respawned again.
 -- The remaining infantry group is loaded and safely delivered to the deploy zone.
 ---
 

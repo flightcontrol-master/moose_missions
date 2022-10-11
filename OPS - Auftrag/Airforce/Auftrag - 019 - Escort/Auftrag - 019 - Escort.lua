@@ -3,8 +3,6 @@
 -- 
 -- B-52s will take off from Senaki and fly to zone Alpha and Bravo.
 -- A group of F-16s will escort them until they land at Batumi and then return to Senaki.
--- 
--- A group of enemy MiG-29s is also around...
 ---
 
 local zoneAlpha=ZONE:New("Zone Alpha")

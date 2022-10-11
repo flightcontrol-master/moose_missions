@@ -4,7 +4,7 @@
 -- Date Created: 02 Nov 2018
 
 
-CC = COMMANDCENTER:New( GROUP:FindByName( "HQ" ), "HQ" )
+CC = COMMANDCENTER:New( GROUP:FindByName("HQ"),"HQ")
 
 -- Define a SET_GROUP object that builds a collection of groups that define the recce network.
 -- Here we build the network with all the groups that have a name starting with CCCP Recce.

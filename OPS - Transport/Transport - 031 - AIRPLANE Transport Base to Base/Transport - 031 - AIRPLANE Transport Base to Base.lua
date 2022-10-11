@@ -21,6 +21,7 @@ cargoset:Activate()
 
 -- Cargo transport assignment.
 local transport=OPSTRANSPORT:New(cargoset, zonePickup, zoneDeploy)
+transport:SetVerbosity(3)
 
 -- Add cargo transport.
 c130:AddOpsTransport(transport)

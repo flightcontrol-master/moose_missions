@@ -129,10 +129,3 @@ function flightgroup:OnAfterArrived(From, Event, To)
   MESSAGE:New(text, 10, flightgroup:GetName()):ToAll()
   flightgroup:I(text)
 end
-
---- Function called when the group is dead, i.e. killed or despawned. Will be called after the group has arrived at its parking location.
-function flightgroup:OnAfterDead(From, Event, To)
-  local text=string.format("Group is dead")
-  MESSAGE:New(text, 10, flightgroup:GetName()):ToAll()
-  flightgroup:I(text)
-end

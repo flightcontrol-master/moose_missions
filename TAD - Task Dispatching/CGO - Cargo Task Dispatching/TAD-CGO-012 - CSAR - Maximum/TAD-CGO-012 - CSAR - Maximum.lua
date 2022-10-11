@@ -1,12 +1,12 @@
 ---
--- Name: TAD-CGO-012 - CSAR - Maximum
+-- Name: TAD-CGO-011 - CSAR - Zone tests
 -- Author: FlightControl
 -- Date Created: 01 Oct 2018
 --
 -- # Situation:
 -- 
 -- This mission demonstrates the dynamic task dispatching for cargo CSAR operations.
--- It will only spawn 5 pilots for rescue when the pilots eject.
+-- It will only spawn pilots for rescue when the pilots eject in the zones indicated.
 
 HQ = GROUP:FindByName( "HQ", "Bravo" )
 

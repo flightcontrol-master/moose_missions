@@ -1,5 +1,5 @@
 ---
--- Mission: Close Air Support (CAS)
+-- Mission: CAS
 -- 
 -- A-10 will perform a DCS CAS in zone Charlie and attack all targets it detects automatically.
 -- 
@@ -7,7 +7,7 @@
 -- Therefore, the CAS zone needs to be a circular zone. Polygon zones are unfortunately not supported by DCS.
 -- 
 -- We also enable the detection and send a message if an unknown unit was detected by the group.
--- NOTE that this is not necessary for the CAS mission to work. It is only to keep track on which units are actually detected.
+-- NOTE that this is not necessary for the CAS mission to work.
 ---
 
 -- The CAS zone.

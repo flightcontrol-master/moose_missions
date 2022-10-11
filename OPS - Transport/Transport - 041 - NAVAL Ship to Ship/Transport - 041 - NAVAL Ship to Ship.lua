@@ -51,7 +51,7 @@ transport:SetDisembarkZone(zoneDisembark)
 -- Here this is advisable because the speed boats cannot transport all infantry in one go.
 -- If this is not set, the Hany wind would already start the transport when the first
 -- batch of cargo has been loaded.
-transport:SetRequiredCargos(CargoGroup)
+  transport:SetRequiredCargos(CargoGroup)
  
    -- Assign transport to carrier.
 handywind:AddOpsTransport(transport)
