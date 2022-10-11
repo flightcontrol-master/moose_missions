@@ -45,8 +45,8 @@ def update(f: Path, MooseLua: Path, Temp: Path):
         print(f"Warning: expected script file {ScriptFile} does NOT exist in miz file!")
 
     # Check if Moose.lua file is already.
-    if filecmp(MooseLua.name, ScriptDir/"Moose.lua"):
-        print(f"INFO: Moose.lua file is up-to-date ==> Nothing to do!")
+    if filecmp.cmp(MooseLua, ScriptDir/"Moose.lua"):
+        print(f"INFO: Moose.lua file is up-to-date ==> Nothing to do!")        
     else:
 
         # Copy Moose.lua to temp dir.
