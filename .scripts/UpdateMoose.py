@@ -28,6 +28,11 @@ def update(f: Path, MooseLua: Path, Temp: Path):
     # Folder where script is located
     ScriptDir=Temp / "l10n/DEFAULT/"
 
+    # Check if that directory exists! GRP-600 - Respawn.miz was errorrous!
+    if not ScriptDir.is_dir():
+        print(f"WARNING: {ScriptDir.name} does not exit!")
+        return
+
     # Script file.
     ScriptFile=ScriptDir / Path(f.stem + ".lua")
 
