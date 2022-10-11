@@ -10,14 +10,17 @@ on:
       - master
       - develop
 
-  # Triggers the workflow on pull request events for the "main" and "develop" branches
-  pull_request:
-    branches:
-      - master
-      - develop
+  # Cron job every day at 2 o'clock.
+  schedule:
+    - cron: '0 2 * * *'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+    inputs:
+      name:
+        description: 'Manual Run'
+        required: false
+        default: 'The Octoverse'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
