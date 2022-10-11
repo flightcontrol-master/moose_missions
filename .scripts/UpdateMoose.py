@@ -13,6 +13,7 @@ from pathlib import Path
 from zipfile import ZipFile
 from shutil  import rmtree, copy
 import argparse
+import filecmp
 
 def update(f: Path, MooseLua: Path, Temp: Path):
     """
@@ -26,15 +27,15 @@ def update(f: Path, MooseLua: Path, Temp: Path):
         miz.extractall(Temp)
 
     # Folder where script is located
-    ScriptDir=Temp / "l10n/DEFAULT/"
+    ScriptDir=Temp/"l10n/DEFAULT/"
 
-    # Check if that directory exists! GRP-600 - Respawn.miz was errorrous!
+    # Check if that directory exists! GRP-600 - Respawn.miz was faulty
     if not ScriptDir.is_dir():
         print(f"WARNING: {ScriptDir.name} does not exit!")
         return
 
     # Script file.
-    ScriptFile=ScriptDir / Path(f.stem + ".lua")
+    ScriptFile=ScriptDir/Path(f.stem + ".lua")
 
     #Copy script file to directory.
     if ScriptFile.is_file():
@@ -43,13 +44,18 @@ def update(f: Path, MooseLua: Path, Temp: Path):
     else:
         print(f"Warning: expected script file {ScriptFile} does NOT exist in miz file!")
 
-    # Copy Moose.lua to temp dir.
-    copy(MooseLua, ScriptDir/"Moose.lua")
+    # Check if Moose.lua file is already.
+    if filecmp(MooseLua, ScriptDir/"Moose.lua"):
+        print(f"INFO: Moose.lua file is up-to-date ==> Nothing to do!")
+    else:
 
-    # Create new miz file
-    with ZipFile(f, mode='w') as archive:
-        for file_path in Temp.rglob("*"):
-            archive.write(file_path, arcname=file_path.relative_to(Temp))
+        # Copy Moose.lua to temp dir.
+        copy(MooseLua, ScriptDir/"Moose.lua")
+
+        # Create new miz file
+        with ZipFile(f, mode='w') as archive:
+            for file_path in Temp.rglob("*"):
+                archive.write(file_path, arcname=file_path.relative_to(Temp))
 
     # Remove temp dir.
     try:
