@@ -5,13 +5,13 @@ name: Build Demo Missions (packed)
 # Controls when the action will run. Workflow runs when manually triggered using the UI
 # or API.
 on:
-  schedule:
-    - cron: '0 7 * * 6'
+  #schedule:
+  #  - cron: '0 7 * * 6'
     
-  push:
-    branches:
-      - master
-      - develop
+  #push:
+  #  branches:
+  #    - master
+  #    - develop
 
   workflow_dispatch:
     inputs:
