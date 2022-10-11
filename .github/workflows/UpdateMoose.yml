@@ -87,5 +87,5 @@ jobs:
           git add *
           git config --global user.name 'funkyfranky'
           git config --global user.email 'frank@inter-zone.de'
-          git commit -am "Updated Moose.lua"
+          git commit -am "Updated Moose.lua" || echo "No changes to commit"
           git push      
