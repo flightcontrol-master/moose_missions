@@ -1,8 +1,8 @@
 """
 This script finds all miz files and updates the contained Moose.lua from a given one.
+
 It also extracts the contained mission script and places it next to the miz file.
-Here we assume that the stem of the file name is the same as the directory name, e.g.
-"Auftrag - 10 - Arty.lua" if the miz file name is "Auftrag - 10 - Arty.miz"
+All files that end with lua and do NOT start with Moose are extracted.
 
 This script is supposed to be run from, e.g., github actions when a new demo mission is
 uploaded.
@@ -15,12 +15,26 @@ from shutil  import rmtree, copy
 import argparse
 import filecmp
 
+def findMoose(path: Path):
+    # Loop over all lua files (recursively)
+    for f in path.rglob("*.lua"):
+        if f.name.lower().startswith("moose"):
+            print(f"Found Moose file as: {f}")
+            return f
+
+def copyScripts(path: Path, topath):
+    # Loop over all lua files (recursively)
+    for f in path.rglob("*.lua"):
+        if not f.name.lower().startswith("moose"):
+            print(f"Found script: {f}")
+            copy(f, topath)
+
 def update(f: Path, MooseLua: Path, Temp: Path):
     """
     Update the Moose.lua file in given file.
     """
     # Print file name.
-    print(f"Updating file: {f}")
+    print(f"Checking file: {f}")
 
     # Extract all the contents of zip file in different directory
     with ZipFile(f, mode='r') as miz:
@@ -34,23 +48,36 @@ def update(f: Path, MooseLua: Path, Temp: Path):
         print(f"WARNING: {ScriptDir.name} does not exit!")
         return
 
+    # Find old Moose file in Scrit directory.
+    MooseOld=findMoose(ScriptDir)
+    if not MooseOld.is_file():
+        print("WARNING: Could not find any file that starts with Moose!")
+        return
+
+
+    # Copy all script files (all files that do NOT start with moose and end with lua)
+    copyScripts(ScriptDir, f.parent)
+
     # Script file.
-    ScriptFile=ScriptDir/Path(f.stem + ".lua")
+    #ScriptFile=ScriptDir/Path(f.stem + ".lua")
 
     #Copy script file to directory.
-    if ScriptFile.is_file():
-        print(f"Copying script file {ScriptFile} to {f.parent}")
-        copy(ScriptFile, f.parent)
-    else:
-        print(f"Warning: expected script file {ScriptFile} does NOT exist in miz file!")
+    #if ScriptFile.is_file():
+    #    print(f"Copying script file {ScriptFile} to {f.parent}")
+    #    copy(ScriptFile, f.parent)
+    #else:
+    #    print(f"Warning: expected script file {ScriptFile} does NOT exist in miz file!")
 
     # Check if Moose.lua file is already.
-    if filecmp.cmp(MooseLua, ScriptDir/"Moose.lua"):
-        print(f"INFO: Moose.lua file is up-to-date ==> Nothing to do!")        
+    if filecmp.cmp(MooseLua, MooseOld):
+        print(f"INFO: {MooseOld.name} file is up-to-date ==> Nothing to do!")
     else:
 
+        # Info.
+        print(f"INFO: Updating {MooseOld.name} with current version")
+
         # Copy Moose.lua to temp dir.
-        copy(MooseLua, ScriptDir/"Moose.lua")
+        copy(MooseLua, MooseOld)
 
         # Create new miz file
         with ZipFile(f, mode='w') as archive:
