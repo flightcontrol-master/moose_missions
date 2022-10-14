@@ -15,8 +15,13 @@ CC = COMMANDCENTER:New( HQ, "HQ" )
 
 RecceDetection = DETECTION_UNITS
   :New( SetGroup )
-  :FilterCategories( { Unit.Category.AIRPLANE } )
-  :InitDetectRWR(true)
+  :FilterCategories( {
+    Unit.Category.AIRPLANE,
+    Unit.Category.GROUND_UNIT,
+    Unit.Category.HELICOPTER,
+    Unit.Category.SHIP,
+    Unit.Category.STRUCTURE
+  } )
 
 RecceDetection:Start()
 

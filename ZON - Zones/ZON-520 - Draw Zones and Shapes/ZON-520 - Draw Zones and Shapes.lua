@@ -1,7 +1,7 @@
 ---
 -- This demo mission illustrates how to draw zones (circular and polygon) defined in the Mission Editor on the F10 map.
 -- 
--- Furthermore, it shows how to create circles, rectangles, lines, arrows and text at arbitrary coordinates on the F10 map.
+-- Furthermore, it shows how to create cicles, rectangled, lines, arrows and text at arbitrary coordinates on the F10 map.
 --- 
 
 -- Circular zone defined in the ME.

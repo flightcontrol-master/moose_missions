@@ -37,7 +37,7 @@ A2GDispatcher:SetSquadronCas2( "Maykop CAS", 200, 250, 300, 500, "RADIO" )
 A2GDispatcher:SetSquadronTakeoffFromParkingHot( "Maykop CAS" )
 A2GDispatcher:SetSquadronOverhead( "Maykop CAS", 0.25 )
 
-A2GDispatcher:SetSquadron( "Maykop BAI", "BAI", { "CCCP MIL-8MTV" }, 10 )
+A2GDispatcher:SetSquadron( "Maykop BAI", "BAI", { "CCCP KA-50" }, 10 )
 A2GDispatcher:SetSquadronBai2( "Maykop BAI", 200, 250, 300, 500, "RADIO" )
 A2GDispatcher:SetSquadronTakeoffFromParkingHot( "Maykop BAI" )
 A2GDispatcher:SetSquadronOverhead( "Maykop BAI", 0.25 )

@@ -4,9 +4,6 @@
 -- Date Created: 23 Apr 2018
 -- Date Checked: 01 Jan 2021
 
-BASE:TraceClass("AI_CARGO_APC")
-BASE:TraceOn()
-
 local InfantryCargoSet = SET_CARGO:New():FilterTypes( "Infantry" ):FilterStart()
 
 Cargo_APC = {}

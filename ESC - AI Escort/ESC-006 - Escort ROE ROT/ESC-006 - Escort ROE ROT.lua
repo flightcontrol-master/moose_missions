@@ -4,7 +4,7 @@ local FollowGroupSet = SET_GROUP:New():FilterCategories( { "helicopter" } ):Filt
 local LeaderUnit = UNIT:FindByName( "Leader" )
 local Escort = AI_ESCORT:New( LeaderUnit, FollowGroupSet, "Escort Test", "Use the ROE and ROT menus to test if the behaviour is working." )
 
-Escort:ModeMission()
+Escort:SetFlightModeMission()
 
 Escort:MenusHelicopters()
 Escort:__Start( 5 )

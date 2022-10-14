@@ -49,7 +49,7 @@ local ZoneDefense4 = ZONE_GROUP:New( "Defense 4", GROUP:FindByName("Defense #004
 -- @param Core.Point#COORDINATE Coordinate The coordinate of the pickup location.
 -- @param #number Speed The velocity in meters per second on which the CarrierGroup is routed towards the pickup Coordinate.
 -- @param #number Height Height in meters to move to the pickup coordinate.
-function AICargoDispatcherHelicopter:OnAfterPickup( From, Event, To, CarrierGroup, Coordinate, Speed, Height, PickupZone )
+function AICargoDispatcherHelicopter:OnAfterPickup( From, Event, To, CarrierGroup, Coordinate, Speed, Height )
 
   -- Write here your own code.
   MESSAGE:NewType( "Group " .. CarrierGroup:GetName().. " is picking up cargo.", MESSAGE.Type.Information ):ToAll()
@@ -203,4 +203,4 @@ AICargoDispatcherHelicopter:SetDeploySpeed( 300, 200 )
 AICargoDispatcherHelicopter:SetPickupHeight( 100, 30 )
 AICargoDispatcherHelicopter:SetDeployHeight( 100, 30 )
 
-AICargoDispatcherHelicopter:__Start( 10 )
+AICargoDispatcherHelicopter:ScheduleOnce( 10, AICargoDispatcherHelicopter.Start, AICargoDispatcherHelicopter )

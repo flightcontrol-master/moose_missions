@@ -12,11 +12,13 @@
 do
 
   -- Declare SPAWN objects
-  Spawn_KA_50 = SPAWN:New("KA-50")
-  Spawn_KA_50:InitLimit( 2, 10 )
+  Spawn_KA_50 = SPAWN:New("KA-50"):InitLimit( 2, 10 )
+     :InitLimit( 2, 0 )
   
   -- Choose repeat functionality
- 
+  
+  -- Repeat on landing
+  Spawn_KA_50:InitRepeatOnLanding()
   Spawn_KA_50:InitDelayOff()
   Spawn_KA_50:InitCleanUp( 300 )
   Spawn_KA_50:SpawnScheduled( 180, 0.2 )

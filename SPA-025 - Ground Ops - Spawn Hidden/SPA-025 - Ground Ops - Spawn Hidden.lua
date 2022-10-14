@@ -1,7 +1,6 @@
 -- Name: SPA-025 - Ground Ops - Spawn Hidden
 -- Author: FlightControl
 -- Date Created: 06 Sep 2017
--- Checked in 15 dez 2020 by ZERO
 --
 -- # Situation:
 --

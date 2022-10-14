@@ -9,7 +9,6 @@
 -- 
 -- # Test cases: 
 
-
 do
   local HQ = GROUP:FindByName( "HQ", "Bravo HQ" )
 

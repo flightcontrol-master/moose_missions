@@ -2,7 +2,7 @@
 -- Name: AIC-APC-001 - Troops Relocate APC
 -- Author: FlightControl
 -- Date Created: 07 Apr 2018
--- Date Checked: 01 Jan 2021, working
+-- Date Checked: 01 Jan 2021
 -- 
 -- Demonstration of troops relocation when carrier is destroyed...
 -- Carrier will relocate to the rescue carrier.

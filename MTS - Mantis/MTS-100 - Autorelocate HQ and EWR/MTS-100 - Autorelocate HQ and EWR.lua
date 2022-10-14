@@ -18,6 +18,6 @@
 
 myredmantis = MANTIS:New("myredmantis","Red SAM","Red EWR","Red HQ","red",false)
 myredmantis:SetAutoRelocate(true, true) -- make HQ and EWR relocatable, if they are actually mobile in DCS!
-myredmantis:Debug(false)
+myredmantis:Debug(true)
 myredmantis.verbose = true
 myredmantis:Start()

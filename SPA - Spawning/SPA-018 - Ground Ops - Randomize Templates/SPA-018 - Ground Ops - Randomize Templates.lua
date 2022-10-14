@@ -12,7 +12,7 @@
 -- 
 -- 1. Observe that the ground vehicles are spawned at the position declared within the mission editor.
 -- 2. The vehicles should spawn according the scheduler parameters.
--- 3. There should not be more than 10 units spawned. Make sure that group count  have less than 10 units or 10 groups.
+-- 3. There should not be more than 10 groups spawned.
 -- 4. Observe that the route that the vehicles follow is randomized starting from point 1 till point 3.
 -- 5. Observe that the position where the units are spawned, is randomized according the zones.
 -- 6. Observe that the ground vehicles are spawned with randomized templates.

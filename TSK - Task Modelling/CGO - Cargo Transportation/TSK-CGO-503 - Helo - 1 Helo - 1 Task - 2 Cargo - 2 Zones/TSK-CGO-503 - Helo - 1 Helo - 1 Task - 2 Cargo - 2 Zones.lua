@@ -44,14 +44,6 @@ do
   -- The cargoset "EngineersCargoSet" will embed all defined cargo of type Engineers (prefix) into its set.
   local EngineersCargoGroup = CARGO_GROUP:New( EngineersGroup, "Engineers", "Radar Team", 500 )
 
-
-  local WorkersGroup = GROUP:FindByName( "Workers" )
-
-  -- CARGO_GROUP can be used to setup cargo with a GROUP object underneath.
-  -- We name this group Engineers.
-  -- Note that the name of the cargo is "Workers".
-  -- The cargoset "WorkersCargoSet" will embed all defined cargo of type Workers (prefix) into its set.
-  local WorkersCargoGroup = CARGO_GROUP:New( WorkersGroup, "Engineers", "Workers", 500 )
   
   -- We setup the task to transport engineers.
   EngineersCargoTransportTask = TASK_CARGO_TRANSPORT:New( Mission, APC, "Transport Engineers", EngineersCargoSet )
@@ -61,6 +53,13 @@ do
   EngineersCargoTransportTask:AddDeployZone( ZONE_POLYGON:New( "Deploy Zone Beta", GROUP:FindByName("DeployZone Beta") ) )
 
 
+  local WorkersGroup = GROUP:FindByName( "Workers" )
+
+  -- CARGO_GROUP can be used to setup cargo with a GROUP object underneath.
+  -- We name this group Engineers.
+  -- Note that the name of the cargo is "Workers".
+  -- The cargoset "WorkersCargoSet" will embed all defined cargo of type Workers (prefix) into its set.
+  local WorkersCargoGroup = CARGO_GROUP:New( WorkersGroup, "Engineers", "Workers", 500 )
 
 end	
 					

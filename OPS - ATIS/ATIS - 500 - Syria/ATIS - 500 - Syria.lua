@@ -1,3 +1,6 @@
+
+--[[
+
 -- Beirut Rafic Hariri Airport
 atisBeirut=ATIS:New(AIRBASE.Syria.Beirut_Rafic_Hariri, 130.0)
 atisBeirut:SetRadioRelayUnitName("Radio Relay "..AIRBASE.Syria.Beirut_Rafic_Hariri)
@@ -25,6 +28,10 @@ atisRamatDavid:ReportQNHOnly()       -- More realitic as only QNH not QFE is rep
 atisRamatDavid:ReportZuluTimeOnly()  -- More realistic as 
 atisRamatDavid:SetMapMarks()
 atisRamatDavid:Start()
+
+]]
+
+PROFILER.Start()
 
 -- Incirlik
 atisIncirlik=ATIS:New(AIRBASE.Syria.Incirlik, 250.40)

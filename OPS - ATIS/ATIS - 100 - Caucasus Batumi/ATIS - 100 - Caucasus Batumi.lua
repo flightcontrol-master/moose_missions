@@ -11,7 +11,6 @@ atisVaziani:SetRadioRelayUnitName("Radio Relay Vaziani")
 atisVaziani:SetTowerFrequencies({269, 140})
 atisVaziani:Start()
 
--- Only for debugging/info.
 local airbases=AIRBASE.GetAllAirbases()
 for _,_airbase in pairs(airbases) do
   local airbase=_airbase --Wrapper.Airbase#AIRBASE
