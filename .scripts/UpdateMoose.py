@@ -34,7 +34,7 @@ def update(f: Path, MooseLua: Path, Temp: Path):
     Update the Moose.lua file in given file.
     """
     # Print file name.
-    print(f"Updating file: {f}")
+    print(f"Checking file: {f}")
 
     # Extract all the contents of zip file in different directory
     with ZipFile(f, mode='r') as miz:
@@ -70,8 +70,11 @@ def update(f: Path, MooseLua: Path, Temp: Path):
 
     # Check if Moose.lua file is already.
     if filecmp.cmp(MooseLua, MooseOld):
-        print(f"INFO: Moose.lua file is up-to-date ==> Nothing to do!")        
+        print(f"INFO: {MooseOld.name} file is up-to-date ==> Nothing to do!")
     else:
+
+        # Info.
+        print(f"INFO: Updating {MooseOld.name} with current version")
 
         # Copy Moose.lua to temp dir.
         copy(MooseLua, MooseOld)
