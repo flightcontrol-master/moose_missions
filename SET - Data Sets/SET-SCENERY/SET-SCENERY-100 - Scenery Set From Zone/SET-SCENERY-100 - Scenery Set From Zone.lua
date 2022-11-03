@@ -7,7 +7,7 @@
 -- 
 -------------------------------------------------------------------------
 -- Join the game master slot initially, and then the Tank in
--- Combined Arms after a few seconds. Shoot and destroy one of the tanks
+-- Combined Arms after a few seconds. Shoot and destroy on of the tanks
 -- ahead.
 -------------------------------------------------------------------------
 -- Date: November 2022
@@ -25,6 +25,7 @@ local oiltanks = SET_SCENERY:New()
 oilstation:ForEachScenery(
   function(object)
     local scenery = object --Wrapper.Scenery#SCENERY
+    local name = scenery:GetName()
     local desc = scenery:GetDesc()
     BASE:I({desc.typeName})
     if string.find(string.lower(desc.typeName),"tank") then
