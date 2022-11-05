@@ -1,5 +1,5 @@
 -------------------------------------------------------------------------
--- PlayerTask 040 - Caucasus - Test Mission with precision (laser-guided) bombing
+-- PlayerTask 030 - Caucasus - Test Mission with precision (laser-guided) bombing
 -------------------------------------------------------------------------
 -- Documentation
 -- 
