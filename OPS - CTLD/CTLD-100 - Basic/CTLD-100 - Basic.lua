@@ -5,8 +5,6 @@
 -- 
 -- CTLD: https://flightcontrol-master.github.io/MOOSE_DOCS_DEVELOP/Documentation/Ops.CTLD.html
 -- 
--- Note: As of today, Ops.CTLD.lua is WIP. You need a develop branch Moose.lua => 23 Jun 2021 for this to work.
-
 -------------------------------------------------------------------------
 -- Join a Helicopter. Use the F10 menu to request crates and/or troops. 
 -- Fly over to the drop zone at the far end of the airport and unload.
