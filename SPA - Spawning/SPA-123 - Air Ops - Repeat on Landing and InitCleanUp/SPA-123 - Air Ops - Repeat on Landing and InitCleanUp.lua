@@ -2,6 +2,7 @@
 -- Name: SPA-123 - Air Ops - Repeat on Landing and InitCleanUp
 -- Author: FlightControl
 -- Date Created: 15 Sep 2018
+-- Checked in 15 dez 2020 by ZERO
 --
 -- # Situation:
 --
@@ -12,7 +13,7 @@
 do
 
   -- Declare SPAWN objects
-  Spawn_KA_50 = SPAWN:New("KA-50"):InitLimit( 2, 10 )
+  Spawn_KA_50 = SPAWN:New("KA-50")
      :InitLimit( 2, 0 )
   
   -- Choose repeat functionality
