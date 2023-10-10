@@ -1,7 +1,9 @@
+---
 -- Name: RAT-011 - Traffic at Nellis AFB
 -- Author: funkyfranky
 -- Date Created: 24 Sep 2017
---
+-- Updated: 10 Oct 2023
+-- 
 -- # Situation:
 --
 -- We want to generate some random air traffic at Nellis AFB.
@@ -19,10 +21,11 @@
 local f15=RAT:New("RAT_F15C")
 
 -- Departure Nellis.
-f15:SetDeparture("Nellis AFB")
+f15:SetDeparture(AIRBASE.Nevada.Nellis_AFB)
+f15:SetCoalition("same")
 
 -- Destination Tonopah, Groom Lake or Creech.
-f15:SetDestination({"Tonopah Test Range Airfield", "Groom Lake AFB", "Creech AFB"})
+f15:SetDestination({AIRBASE.Nevada.Tonopah_Airport, AIRBASE.Nevada.Groom_Lake_AFB, AIRBASE.Nevada.Creech_AFB})
 
 -- Spawn three flights.
 f15:Spawn(3)
@@ -32,10 +35,11 @@ f15:Spawn(3)
 local a10=RAT:New("RAT_A10C")
 
 -- Departure Nellis.
-a10:SetDeparture("Nellis AFB")
+a10:SetDeparture(AIRBASE.Nevada.Nellis_AFB)
+a10:SetCoalition("same")
 
 -- Destination Tonopa, Groom Lake or Creech.
-a10:SetDestination({"Tonopah Test Range Airfield", "Groom Lake AFB", "Creech AFB"})
+a10:SetDestination({AIRBASE.Nevada.Tonopah_Test_Range_Airfield, AIRBASE.Nevada.Groom_Lake_AFB, AIRBASE.Nevada.Creech_AFB})
 
 -- Spawning will happen 60 seconds after mission start.
 a10:SetSpawnDelay(60)
@@ -47,12 +51,13 @@ a10:Spawn(3)
 
 -- Creat RAT object from F/A-18C template.
 local f18=RAT:New("RAT_F18C")
+f18:SetCoalition("same")
 
 -- Departure airports.
-f18:SetDeparture({"Tonopah Test Range Airfield", "Groom Lake AFB", "Creech AFB"})
+f18:SetDeparture({AIRBASE.Nevada.Tonopah_Test_Range_Airfield, AIRBASE.Nevada.Groom_Lake_AFB, AIRBASE.Nevada.Creech_AFB})
 
 -- Destination Nellis.
-f18:SetDestination("Nellis AFB")
+f18:SetDestination(AIRBASE.Nevada.Nellis_AFB)
 
 -- Spawn three flights.
 f18:Spawn(3)
@@ -69,7 +74,7 @@ kc135:SetDeparture({"RAT Zone North", "RAT Zone East"})
 kc135:SetTakeoff("air")
 
 -- Aircraft will fly to McCarran
-kc135:SetDestination("Nellis AFB")
+kc135:SetDestination(AIRBASE.Nevada.Nellis_AFB)
 
 -- Spawning of aircraft will happen in 2 minute intervalls.
 kc135:SetSpawnInterval(120)
