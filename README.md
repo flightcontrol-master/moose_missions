@@ -1,3 +1,5 @@
+[![Moose-Includes](https://github.com/FlightControl-Master/MOOSE/actions/workflows/build-includes.yml/badge.svg?branch=master)](https://github.com/FlightControl-Master/MOOSE/actions/workflows/build-includes.yml)
+
 # MOOSE framework
 
 MOOSE is a **M**ission **O**bject **O**riented **S**cripting **E**nvironment, and is meant for mission designers in DCS World.
