@@ -2,6 +2,7 @@
 -- Name: ZON-100 - Normal Zone
 -- Author: FlightControl
 -- Date Created: 21 Feb 2017
+-- Updated: 27 Oct 2023
 --
 -- # Situation:
 -- 
@@ -19,7 +20,7 @@ GroupInside = GROUP:FindByName( "Test Inside Polygon" )
 GroupOutside = GROUP:FindByName( "Test Outside Polygon" )
 
 ZoneA = ZONE:New( "Zone A" )
-ZoneA:BoundZone( 90 )
+ZoneA:BoundZone( 90, country.id.CHINA, false )
 
 Messager = SCHEDULER:New( nil,
   function()
