@@ -9,13 +9,14 @@
 -- Basic demo of AWACS functionality. You can join one of the planes 
 -- and switch to AM 255 to listen in. Also, check out the F10 menu.
 -------------------------------------------------------------------------
--- Date: May 2022
+-- Date: Nov 2023
 -------------------------------------------------------------------------
 
----- These are set in ME trigger
-local hereSRSPath = mySRSPath or "C:\\Program Files\\DCS-SimpleRadio-Standalone"
-local hereSRSPort = mySRSPort or 5002
-local hereSRSGoogle = mySRSGKey --or "C:\\Program Files\\DCS-SimpleRadio-Standalone\\yourkey.json"
+---- These are set in the MSRS Config file - see https://flightcontrol-master.github.io/MOOSE_DOCS_DEVELOP/Documentation/Sound.SRS.html##(MSRS).LoadConfigFile
+MSRS.LoadConfigFile()
+local hereSRSPath = MSRS.path or "C:\\Program Files\\DCS-SimpleRadio-Standalone"
+local hereSRSPort = MSRS.port or 5002
+local hereSRSGoogle = MSRS.google --or "C:\\Program Files\\DCS-SimpleRadio-Standalone\\yourkey.json"
 
 --- SETTINGS
 _SETTINGS:SetLocale("en")
@@ -92,7 +93,7 @@ testawacs:SetAwacsDetails(CALLSIGN.AWACS.Darkstar,1,30,280,88,25)
 -- Set up SRS
 if hereSRSGoogle then
   -- use Google
-  testawacs:SetSRS(hereSRSPath,"female","en-GB",hereSRSPort,"en-GB-Wavenet-F",0.9,hereSRSGoogle)
+  testawacs:SetSRS(hereSRSPath,"female","en-GB",hereSRSPort,MSRS.Voices.Google.Standard.en_GB_Standard_F,0.9,hereSRSGoogle)
 else
   -- use Windows
   testawacs:SetSRS(hereSRSPath,"male","en-GB",hereSRSPort,nil,0.9)
@@ -104,7 +105,7 @@ testawacs:DrawFEZ()
 testawacs:SetRejectionZone(ZONE:FindByName("Red Border"),true)
 testawacs:AddCAPAirWing(AwacsAW2)
 testawacs:SetAICAPDetails(CALLSIGN.F16.Rattler,4,4,300)
-testawacs:SetModernEraAgressive()
+testawacs:SetModernEraAggressive()
 
 testawacs:__Start(5)
 
