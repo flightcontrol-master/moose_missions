@@ -1,4 +1,4 @@
-env.info('*** MOOSE GITHUB Commit Hash ID: 2023-12-20T10:08:14+01:00-63a0224ea43848042b08c17aaeaa5f62574eb3c5 ***')
+env.info('*** MOOSE GITHUB Commit Hash ID: 2023-12-23T14:53:42+01:00-a14435ce5499109647c5f23934d039efe29f8c00 ***')
 env.info('*** MOOSE STATIC INCLUDE START *** ')
 ENUMS={}
 env.setErrorMessageBoxEnabled(false)
@@ -43579,6 +43579,7 @@ return fouldist
 end
 function RANGE:OnEventBirth(EventData)
 self:F({eventbirth=EventData})
+if not EventData.IniPlayerName then return end
 local _unitName=EventData.IniUnitName
 local _unit,_playername=self:_GetPlayerUnitAndName(_unitName)
 self:T3(self.lid.."BIRTH: unit   = "..tostring(EventData.IniUnitName))
@@ -46224,7 +46225,7 @@ if takeoff==RAT.wp.air then
 departure=departure:GetZone()
 end
 elseif self:_ZoneExists(_departure)then
-departure=ZONE:New(_departure)
+departure=ZONE:FindByName(_departure)
 else
 local text=string.format("ERROR! Specified departure airport %s does not exist for %s.",_departure,self.alias)
 self:E(RAT.id..text)
@@ -46295,7 +46296,7 @@ if landing==RAT.wp.air or self.returnzone then
 destination=destination:GetZone()
 end
 elseif self:_ZoneExists(_destination)then
-destination=ZONE:New(_destination)
+destination=ZONE:FindByName(_destination)
 else
 local text=string.format("ERROR: Specified destination airport/zone %s does not exist for %s!",_destination,self.alias)
 self:E(RAT.id.."ERROR: "..text)
@@ -46630,7 +46631,7 @@ end
 end
 elseif self:_ZoneExists(name)then
 if takeoff==RAT.wp.air then
-dep=ZONE:New(name)
+dep=ZONE:FindByName(name)
 else
 self:E(RAT.id..string.format("ERROR! Takeoff is not in air. Cannot use %s as departure.",name))
 end
@@ -46702,7 +46703,7 @@ end
 end
 elseif self:_ZoneExists(name)then
 if landing==RAT.wp.air then
-dest=ZONE:New(name)
+dest=ZONE:FindByName(name)
 else
 self:E(RAT.id..string.format("ERROR! Landing is not in air. Cannot use zone %s as destination!",name))
 end
@@ -47664,7 +47665,7 @@ end
 return false
 end
 function RAT:_ZoneExists(name)
-local z=trigger.misc.getZone(name)
+local z=ZONE:FindByName(name)
 if z then
 return true
 end
@@ -60031,7 +60032,7 @@ text=text..string.format("\nWind Vx=%.1f Vy=%.1f Vz=%.1f m/s",wind.x,wind.y,wind
 end
 text=text..string.format("\nPitch=%.1f° | Roll=%.1f° | Yaw=%.1f°",pitch,roll,yaw)
 text=text..string.format("\nClimb Angle=%.1f° | Rate=%d ft/min",unit:GetClimbAngle(),velo.y*196.85)
-local dist=self:_GetOptLandingCoordinate():Get3DDistance(playerData.unit)
+local dist=self:_GetOptLandingCoordinate():Get3DDistance(playerData.unit:GetVec3())
 local vplayer=playerData.unit:GetVelocityKMH()
 local vcarrier=self.carrier:GetVelocityKMH()
 local dv=math.abs(vplayer-vcarrier)
@@ -85235,8 +85236,7 @@ function FLIGHTCONTROL:_CleanText(Text)
 local text=Text:gsub("\n$",""):gsub("\n$","")
 return text
 end
-function FLIGHTCONTROL:SpawnParkingGuard(unit)
-if unit and self.parkingGuard then
+function FLIGHTCONTROL:_SpawnParkingGuard(unit)
 local coordinate=unit:GetCoordinate()
 local spot=self:GetClosestParkingSpot(coordinate)
 if not spot.ParkingGuard then
@@ -85259,6 +85259,10 @@ spot.ParkingGuard=self.parkingGuard:SpawnFromCoordinate(Coordinate)
 else
 self:E(self.lid.."ERROR: Parking Guard already exists!")
 end
+end
+function FLIGHTCONTROL:SpawnParkingGuard(unit)
+if unit and self.parkingGuard then
+self:ScheduleOnce(1,FLIGHTCONTROL._SpawnParkingGuard,self,unit)
 end
 end
 function FLIGHTCONTROL:RemoveParkingGuard(spot,delay)
