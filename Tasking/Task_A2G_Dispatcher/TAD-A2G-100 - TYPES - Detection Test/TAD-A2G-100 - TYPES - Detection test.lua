@@ -1,13 +1,17 @@
--- Name: TAD-A2G-021 - AREAS - Remain BAI as AI
+ ---
+-- Name: TAD-A2G-100 - TYPES - Detection Test
 -- Author: FlightControl
--- Date Created: 20 Dec 2017
+-- Date Created: 15 Mar 2018
 --
+-- # Situation:
+-- 
 -- This mission demonstrates the dynamic task dispatching for Air to Ground operations.
--- This test is about checking that if a player in the air is approaching a BAI task zone, that the task is not converted to a CAS!
--- Jump into the su-25T. The AI Helicopter Attack will fly to the detected blue targets. They won't fire at the helicopters.
--- The su-34 will detect the blue targets, but will report a BAI task, even if the AI helicopters is near the targets.
--- This is a very important aspect of BAI. 
--- Only ground units should be considered as friendlies and would convert a task in CAS if near the enemy.
+-- Reconnassance vehicles are placed at strategic locations, scanning for the enemy locations.
+-- The detection method used is the DETECTION_TYPES method, which groups detected targets into Unit Types that were detected.
+-- The AttackSet will engage upon the enemy, which is a Set of Groups seated by Players.
+-- A2G Tasks are being dispatched to the Players as enemy locations are being detected by the Recce.
+-- Observe that A2G Tasks are being dispatched to the player.
+
 
 -- Declare the Command Center 
 local HQ = GROUP
@@ -18,12 +22,7 @@ local CommandCenter = COMMANDCENTER
   
 -- Declare the Mission for the Command Center.
 local Mission = MISSION
-  :New( CommandCenter, "Overlord", "High",
-        "This mission demonstrates the dynamic task dispatching for Air to Ground operations. " ..
-        "This test is about a SEAD task, dispatched, that is split into a SEAD and BAI task, when units are moving away from the zone. " ..
-        "While the units are moving away, monitor if the task is correctly split into a SEAD and BAI task! " ..
-        "This is only applicable for AREA detections. Other detection methods won't have this dynamic.",
-        coalition.side.RED ) -- Create the Mission.
+  :New( CommandCenter, "Overlord", "High", "Attack Detect Mission Briefing", coalition.side.RED ) -- Create the Mission.
 
 -- Define the RecceSet that will detect the enemy.
 local RecceSet = SET_GROUP
@@ -33,8 +32,8 @@ local RecceSet = SET_GROUP
   :FilterStart() -- Start the dynamic building of the set.
 
 -- Setup the detection. We use DETECTION_AREAS to detect and group the enemies.
-local DetectionAreas = DETECTION_AREAS
-  :New( RecceSet, 3000 )  -- The RecceSet will detect the enemies, and group them into areas of a 3 km radius.
+local DetectionAreas = DETECTION_TYPES
+  :New( RecceSet )  -- The RecceSet will detect the enemies, and group them into unit types that were detected.
 
 -- Setup the AttackSet, which is a SET_GROUP.
 -- The SET_GROUP is a dynamic collection of GROUP objects.  
