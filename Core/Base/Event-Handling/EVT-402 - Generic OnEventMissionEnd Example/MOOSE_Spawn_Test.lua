@@ -1,4 +1,4 @@
-env.info('*** MOOSE GITHUB Commit Hash ID: 2024-01-27T15:28:46+01:00-bd5c1af335eccd97bbe7b2e84c9625a991da634f ***')
+env.info('*** MOOSE GITHUB Commit Hash ID: 2024-02-04T13:13:06+01:00-4307ddcad379150951e4aa7a4d15aeba6146fa9b ***')
 if not MOOSE_DEVELOPMENT_FOLDER then
 MOOSE_DEVELOPMENT_FOLDER='Scripts'
 end
@@ -18977,7 +18977,7 @@ SpawnGroup:SetAIOnOff(self.AIOnOff)
 end
 self:T3(SpawnTemplate.name)
 if self.SpawnFunctionHook then
-self.SpawnHookScheduler:Schedule(nil,self.SpawnFunctionHook,{self.SpawnGroups[self.SpawnIndex].Group,unpack(self.SpawnFunctionArguments)},0.1)
+self.SpawnHookScheduler:Schedule(nil,self.SpawnFunctionHook,{self.SpawnGroups[self.SpawnIndex].Group,unpack(self.SpawnFunctionArguments)},0.3)
 end
 end
 self.SpawnGroups[self.SpawnIndex].Spawned=true
@@ -26295,8 +26295,9 @@ end
 if n>0 then
 local Vec3={x=x/n,y=y/n,z=z/n}
 return Vec3
+else
+return self:GetVec3()
 end
-return nil
 end
 function GROUP:GetPointVec2()
 self:F2(self.GroupName)
@@ -26317,8 +26318,13 @@ local Heading=self:GetHeading()
 coord.Heading=Heading
 return coord
 else
+local coord=self:GetCoordinate()
+if coord then
+return coord
+else
 BASE:E({"Cannot GetAverageCoordinate",Group=self,Alive=self:IsAlive()})
 return nil
+end
 end
 end
 function GROUP:GetCoordinate()
@@ -52035,17 +52041,17 @@ MEDIUM="Medium",
 LONG="Long",
 }
 MANTIS.SamData={
-["Hawk"]={Range=44,Blindspot=0,Height=9,Type="Medium",Radar="Hawk"},
-["NASAMS"]={Range=14,Blindspot=0,Height=3,Type="Short",Radar="NSAMS"},
-["Patriot"]={Range=99,Blindspot=0,Height=9,Type="Long",Radar="Patriot"},
-["Rapier"]={Range=6,Blindspot=0,Height=3,Type="Short",Radar="rapier"},
+["Hawk"]={Range=35,Blindspot=0,Height=12,Type="Medium",Radar="Hawk"},
+["NASAMS"]={Range=14,Blindspot=0,Height=7,Type="Short",Radar="NSAMS"},
+["Patriot"]={Range=99,Blindspot=0,Height=25,Type="Long",Radar="Patriot"},
+["Rapier"]={Range=10,Blindspot=0,Height=3,Type="Short",Radar="rapier"},
 ["SA-2"]={Range=40,Blindspot=7,Height=25,Type="Medium",Radar="S_75M_Volhov"},
 ["SA-3"]={Range=18,Blindspot=6,Height=18,Type="Short",Radar="5p73 s-125 ln"},
 ["SA-5"]={Range=250,Blindspot=7,Height=40,Type="Long",Radar="5N62V"},
 ["SA-6"]={Range=25,Blindspot=0,Height=8,Type="Medium",Radar="1S91"},
 ["SA-10"]={Range=119,Blindspot=0,Height=18,Type="Long",Radar="S-300PS 4"},
 ["SA-11"]={Range=35,Blindspot=0,Height=20,Type="Medium",Radar="SA-11"},
-["Roland"]={Range=8,Blindspot=0,Height=3,Type="Short",Radar="Roland"},
+["Roland"]={Range=5,Blindspot=0,Height=5,Type="Short",Radar="Roland"},
 ["HQ-7"]={Range=12,Blindspot=0,Height=3,Type="Short",Radar="HQ-7"},
 ["SA-9"]={Range=4,Blindspot=0,Height=3,Type="Short",Radar="Strela"},
 ["SA-8"]={Range=10,Blindspot=0,Height=5,Type="Short",Radar="Osa 9A33"},
