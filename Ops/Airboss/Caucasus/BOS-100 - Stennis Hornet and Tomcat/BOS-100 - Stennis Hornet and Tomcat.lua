@@ -39,7 +39,7 @@ awacs:SetTACAN(2, "WIZ")
 awacs:__Start(1)
 
 -- Rescue Helo with home base Lake Erie. Has to be a global object!
-rescuehelo=RESCUEHELO:New("USS Stennis", "Rescue Helo")
+local rescuehelo=RESCUEHELO:New("USS Stennis", "Rescue Helo")
 rescuehelo:SetHomeBase(AIRBASE:FindByName("Lake Erie"))
 rescuehelo:SetModex(42)
 rescuehelo:__Start(1)
@@ -95,7 +95,7 @@ end
 --- Function called when AWACS is started.
 function awacs:OnAfterStart(From,Event,To)
   -- Set AWACS.
-  AirbossStennis:SetRecoveryTanker(tanker)  
+  AirbossStennis:SetAWACS(awacs)
 end
 
 
@@ -118,7 +118,7 @@ function AirbossStennis:OnAfterLSOGrade(From, Event, To, playerData, grade)
   local name=tostring(PlayerData.name)
   
   -- Report LSO grade to dcs.log file.
-  env.info(string.format("Player %s scored %.1f", name, score))
+  self:I(string.format("Player %s scored %.1f", name, score))
 end
 
 
