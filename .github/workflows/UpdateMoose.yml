@@ -5,14 +5,14 @@ name: Build Demo Missions
 on:
 
   # Triggers the workflow on push or pull request events for the "main" and "develop" branches
-  push:
-    branches:
-      - master
-      - develop
+  #push:
+  #  branches:
+  #    - master
+  #    - develop
 
   # Cron job every day at 2 o'clock.
   schedule:
-    - cron: '0 2 * * *'
+    - cron: '0 2 * * 0'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
