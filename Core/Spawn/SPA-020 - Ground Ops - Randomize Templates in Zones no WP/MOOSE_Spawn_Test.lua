@@ -1,4 +1,4 @@
-env.info('*** MOOSE GITHUB Commit Hash ID: 2024-08-17T14:20:51+02:00-2836d7a40f138255016eaa64009328d4d129e93f ***')
+env.info('*** MOOSE GITHUB Commit Hash ID: 2024-08-18T18:19:05+02:00-c2933b6bed7d0609a24316bc6f575200248a29e1 ***')
 if not MOOSE_DEVELOPMENT_FOLDER then
 MOOSE_DEVELOPMENT_FOLDER='Scripts'
 end
@@ -7472,7 +7472,9 @@ end
 if Event.dynamiccargo then
 Event.IniDynamicCargo=Event.dynamiccargo
 Event.IniDynamicCargoName=Event.IniDynamicCargo.StaticName
-Event.IniPlayerName=Event.IniDynamicCargo.Owner or string.match(Event.IniUnitName,"^(.+)|%d%d:%d%d|PKG%d+")
+if Event.IniDynamicCargo.Owner or Event.IniUnitName then
+Event.IniPlayerName=Event.IniDynamicCargo.Owner or string.match(Event.IniUnitName or"None|00:00|PKG00","^(.+)|%d%d:%d%d|PKG%d+")
+end
 end
 if Event.zone then
 Event.Zone=Event.zone
@@ -23444,6 +23446,7 @@ POSITIONABLE.CargoBayCapacityValues={
 ["HL_KORD"]=6*POSITIONABLE.DefaultInfantryWeight,
 ["HL_DSHK"]=6*POSITIONABLE.DefaultInfantryWeight,
 ["CCKW_353"]=16*POSITIONABLE.DefaultInfantryWeight,
+["MaxxPro_MRAP"]=7*POSITIONABLE.DefaultInfantryWeight,
 }
 }
 function POSITIONABLE:SetCargoBayWeightLimit(WeightLimit)
@@ -69550,6 +69553,34 @@ precepitation=1
 else
 precepitation=3
 end
+elseif cloudspreset:find("RainyPreset4")then
+clouddens=5
+if temperature>5 then
+precepitation=1
+else
+precepitation=3
+end
+elseif cloudspreset:find("RainyPreset5")then
+clouddens=5
+if temperature>5 then
+precepitation=1
+else
+precepitation=3
+end
+elseif cloudspreset:find("RainyPreset6")then
+clouddens=5
+if temperature>5 then
+precepitation=1
+else
+precepitation=3
+end
+elseif cloudspreset:find("NEWRAINPRESET4")then
+clouddens=5
+if temperature>5 then
+precepitation=1
+else
+precepitation=3
+end
 elseif cloudspreset:find("RainyPreset")then
 clouddens=9
 if temperature>5 then
@@ -85645,7 +85676,7 @@ OFFENSIVE="Offensive",
 AGGRESSIVE="Aggressive",
 TOTALWAR="Total War"
 }
-CHIEF.version="0.6.0"
+CHIEF.version="0.6.1"
 function CHIEF:New(Coalition,AgentSet,Alias)
 Alias=Alias or"CHIEF"
 if type(Coalition)=="string"then
@@ -86734,6 +86765,7 @@ end
 if MissionType==AUFTRAG.Type.ARMOREDGUARD then
 RangeMax=UTILS.NMToMeters(50)
 end
+self:T(self.lid..string.format("Recruiting assets for zone %s",StratZone.opszone:GetName()))
 self:T(self.lid.."Missiontype="..MissionType)
 self:T({categories=Categories})
 self:T({attributes=Attributes})
@@ -86745,11 +86777,15 @@ self:T2(self.lid..string.format("Recruited %d assets for %s mission STRATEGIC zo
 local TargetZone=StratZone.opszone.zone
 local TargetCoord=TargetZone:GetCoordinate()
 local transport=nil
+local Ntransports=0
 if Resource.carrierNmin and Resource.carrierNmax and Resource.carrierNmax>0 then
+self:T(self.lid..string.format("Recruiting carrier assets: Nmin=%s, Nmax=%s",tostring(Resource.carrierNmin),tostring(Resource.carrierNmax)))
 local cargoassets=CHIEF._FilterAssets(assets,Resource.Categories,Resource.Attributes,Resource.Properties)
 if#cargoassets>0 then
 recruited,transport=LEGION.AssignAssetsForTransport(self.commander,self.commander.legions,cargoassets,
 Resource.carrierNmin,Resource.carrierNmax,TargetZone,nil,Resource.carrierCategories,Resource.carrierAttributes,Resource.carrierProperties)
+Ntransports=transport~=nil and#transport.assets or 0
+self:T(self.lid..string.format("Recruited %d transport carrier assets success=%s",Ntransports,tostring(recruited)))
 end
 end
 if not recruited then
@@ -86808,8 +86844,9 @@ if mission then
 mission:_AddAssets(assets)
 self:MissionAssign(mission,legions)
 StratZone.opszone:_AddMission(self.coalition,MissionType,mission)
+mission:SetName(string.format("Stratzone %s-%d",StratZone.opszone:GetName(),mission.auftragsnummer))
 Resource.mission=mission
-if transport then
+if transport and Ntransports>0 then
 mission.opstransport=transport
 transport.opszone=StratZone.opszone
 transport.chief=self
@@ -95636,6 +95673,9 @@ for _,asset in pairs(assets)do
 table.insert(Assets,asset)
 end
 end
+end
+if#Assets==0 then
+return false,{},{}
 end
 LEGION._OptimizeAssetSelection(Assets,MissionTypeOpt,TargetVec2,false,TotalWeight)
 for _,_asset in pairs(Assets)do
