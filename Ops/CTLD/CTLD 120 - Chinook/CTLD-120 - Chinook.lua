@@ -14,10 +14,9 @@
 -- Date: 17 Aug 2024
 -------------------------------------------------------------------------
 
-
 _SETTINGS:SetPlayerMenuOff()
 
-local my_ctld = CTLD:New(coalition.side.BLUE,{"Helicargo","Ch.47"},"Lufttransportbrigade I")
+local my_ctld = CTLD:New(coalition.side.BLUE,{"Helicargo","CH.47","CH%-47"},"Lufttransportbrigade I")
 my_ctld.useprefix = true
 my_ctld.dropcratesanywhere = true
 my_ctld.forcehoverload = false -- Chinook must-have option
@@ -52,3 +51,5 @@ end
 function my_ctld:OnAfterCratesDropped(From,Event,To,Group,Unit,Cargotable)
   MESSAGE:New("Crates dropped by "..Unit:GetPlayerName(),10,"CTLD"):ToBlue()
 end
+
+
