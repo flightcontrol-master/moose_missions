@@ -8,12 +8,7 @@
 -------------------------------------------------------------------------
 -- Observe a set of SAM sites being attacked by F18 SEAD 
 -------------------------------------------------------------------------
--- Date: 11 Nov 2021
-
---- Set up SHORAD
-local redsamset = SET_GROUP:New():FilterCoalitions("red"):FilterPrefixes({"SAM-SA","EWR"}):FilterStart()
-local redshorad = SHORAD:New("SHORAD-RED","SHORAD",redsamset,25000,600,"red",true) -- Functional.Shorad#SHORAD
-redshorad:SetDefenseLimits(80,95)
+-- Date: Mar 2025
 
 --- Borders
 local israelborder = ZONE_POLYGON:New("Israel",GROUP:FindByName("Israel Border"))
@@ -22,7 +17,6 @@ local syriaborder = ZONE_POLYGON:New("Syria",GROUP:FindByName("Syria Border"))
 --- MANTIS
 local RedMantis = MANTIS:New("SyMantis","SAM-SA","EWR",nil,"red")
 RedMantis:AddZones({syriaborder},{israelborder}) --accept and reject zones
-RedMantis:AddShorad(redshorad,600)
 RedMantis:__Start(5)
 
 function RedMantis:OnAfterSeadSuppressionPlanned(From, Event, To, Group, Name, SuppressionStartTime, SuppressionEndTime)
