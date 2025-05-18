@@ -5,8 +5,6 @@
 -- 
 -- MANTIS: https://flightcontrol-master.github.io/MOOSE_DOCS/Documentation/Functional.Mantis.html
 -- 
--- NEEDS REWORK
---
 -------------------------------------------------------------------------
 -- Observe a set of SAM sites being attacked by F18 SEAD and A10Cs. 
 -- HQ will be destroyed after 10 mins.
