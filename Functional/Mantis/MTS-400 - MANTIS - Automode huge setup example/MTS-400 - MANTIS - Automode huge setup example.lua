@@ -8,11 +8,13 @@
 -------------------------------------------------------------------------
 -- Observe a set of SAM sites being attacked by F18 SEAD 
 -------------------------------------------------------------------------
--- Date: Mar 2025
+-- Date: Mar 2025 - Updated July 2025
 
 --- Borders
 local israelborder = ZONE_POLYGON:New("Israel",GROUP:FindByName("Israel Border"))
 local syriaborder = ZONE_POLYGON:New("Syria",GROUP:FindByName("Syria Border"))
+israelborder:DrawZone(-1,{0,1,0},1,{0,1,0},.1,1,true)
+syriaborder:DrawZone(-1,{1,0,0},1,{1,0,0},.1,1,true)
 
 --- MANTIS
 local RedMantis = MANTIS:New("SyMantis","SAM-SA","EWR",nil,"red")
