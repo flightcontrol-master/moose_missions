@@ -10,28 +10,13 @@
 -- HQ will be destroyed after 10 mins.
 -- Watch the long an short range MANTIS in action, with the SA10 also using SHORAD for defense.
 -------------------------------------------------------------------------
--- Date: 14 July 2021
-
--- Set up SHORAD
-local redsamset = SET_GROUP:New():FilterCoalitions("red"):FilterPrefixes({"Red AAA","Red SA11","Red EWR"}):FilterStart()
-local myredshorad = SHORAD:New("Gudata Shorad","Red Shorad",redsamset,12000,600,"red",false) -- Functional.Shorad#SHORAD
-myredshorad:SetDefenseLimits(80,95)
-
--- Short/Mid-Range SAM sites
-local myredmantis = MANTIS:New("Gudauta AAA","Red AAA","Red EWR",nil,"red",true,"Red AWACS",false)
-myredmantis:SetSAMRadius(25000)
-myredmantis:SetSAMRange(85)
-myredmantis:SetDetectInterval(20)
-myredmantis:Start()
+-- Date: 14 July 2021 - Updated July 2025
 
 -- Long-range SAM site, also linked to SHORAD
-local myredsa10 = MANTIS:New("Gudauta SA10","Red SA11","Red EWR","Red HQ","red",true,"Red AWACS",false)
-myredsa10:SetSAMRadius(UTILS.NMToMeters(40))
-myredsa10:SetSAMRange(90)
+local myredsa10 = MANTIS:New("Red Defenses","Red SAM","Red EWR","Red HQ","red",true,"Red AWACS")
 myredsa10:SetDetectInterval(20)
-myredsa10:AddShorad(myredshorad,720)
-myredsa10:SetAdvancedMode(true,90)
 myredsa10:SetAutoRelocate(true,false)
+myredsa10:SetAdvancedMode(true)
 --myredsa10:Debug(true)
 myredsa10:Start()
 
