@@ -46,8 +46,8 @@ function armygroup:OnAfterOutOfAmmo()
   -- Get a coordinate near the rearming truck.
   local coordinate=RearmingTruck:GetRandomCoordinate(10, 25)
 
-  -- Order group to rearm at a specific coordinate after one second (need time to cancel the fire at point task)
-  self:__Rearm(1, coordinate)
+  -- Order group to rearm at a specific coordinate.
+  self:Rearm(coordinate)
 
 end
 
