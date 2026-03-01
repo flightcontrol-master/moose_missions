@@ -9,10 +9,6 @@
 -- 
 -- The mission is successful if at least one cargo item makes it
 -- to its destination airbase.
--- 
--- If the mission is successful, the delivered cargo will be marked
--- by blue smoke. This is just an example how you can access the 
--- cargo objects at their final destination.
 ---
 
 -- Create a FLIGHTGROUP object of the C-130
